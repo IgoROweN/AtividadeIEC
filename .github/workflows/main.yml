@@ -56,6 +56,6 @@ jobs:
             docker stop minha-aplicacao || true
             docker rm minha-aplicacao || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/minha-aplicacao:latest
-            docker run -d -p 8092:3000 --name minha-aplicacao ${{ secrets.DOCKER_USERNAME }}/minha-aplicacao:latest
+            docker run -d -p 8092:8080 --name minha-aplicacao ${{ secrets.DOCKER_USERNAME }}/minha-aplicacao:latest
             docker ps | grep minha-aplicacao || echo 'Container failed to start'
           EOF
